@@ -1,10 +1,9 @@
 
 # Vukeh - Vücut Kitle Endeksi Hesaplama Uygulaması
 
-
+Demo sayfasına [tıklayın](https://vukeh.netlify.app/).
 ## Rozetler
 
-[shields.io](https://shields.io/) Gibi bir yerden rozetler ekleyin.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
@@ -37,12 +36,6 @@ Testleri çalıştırmak için aşağıdaki komutu çalıştırın
   npm run test
 ```
 
-  
-## Özellikler
 
-- Açık/koyu mod geçişi
-- Canlı ön izleme
-- Tam ekran modu
-- Tüm platformlara destek
 
   
