@@ -2,7 +2,12 @@ import React from 'react';
 
 function Header() {
   return (
-    <div>Header</div>
+    <div className='header'>
+      <div><img src='logo-main.png' alt="vukeh - sağlık yaşam için" /></div>
+      <div>
+        HESAPLA | VKI NEDİR | DİYET LİSTESİ
+      </div>
+    </div>
   );
 }
 
