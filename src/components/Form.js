@@ -134,12 +134,14 @@ function Form() {
               <div style={{ paddingTop: '27px' }}>
                 <img src='../body-scale-1.png' alt='vücut tartısı' width='135' />
               </div>
-              <div>
+              {
+                history.length && <div>
                 <p><span className='popup-title'>İSİM : </span>{history[0].name ? history[0].name : 'Bilinmiyor'}</p>
                 <p><span className='popup-title'>VKE DEĞERİ :</span> <strong>{history[0].bim}</strong></p>
                 <p><span className='popup-title'>VKE TİPİ :</span> <strong>{history[0].bimType}</strong></p>
                 <p>Size uygun diyet programı için <Link to='/diyet'>tıklayınız</Link>.</p>
               </div>
+              }
             </div>
           </div>
         )}
