@@ -19,9 +19,8 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 
   
 ## Ekran Görüntüleri
-Yakında...
 
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Uygulama Ekran Görüntüsü](vukeh-ekran-goruntusu.jpg)
 
   
 ## Kullanılan Teknolojiler
