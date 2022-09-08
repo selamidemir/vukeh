@@ -24,7 +24,7 @@ const Card = styled.div`
   max-width: 315px;
   width: 100%;
   height: 100%;
-  box-shadow: 3px 3px 15px;
+  box-shadow: 1px 1px 5px;
 `;
 
 const Button = styled.button`
@@ -64,14 +64,13 @@ function Form() {
     e.preventDefault();
     const sizeM = (size / 100) * (size / 100);
     const date = new Date();
-    const data = {
-      date: date.toLocaleDateString(),
-      name: name,
-      size: size,
-      weight: weight,
-      bim: Math.round((weight / sizeM), 2),
-    };
-
+    const bim = ((weight / sizeM)).toFixed(2);
+    let bimType = 'Zayıf';
+    if (bim >= 18.50 && bim <= 24.9) bimType = 'İdeal';
+    else if (bim >= 25 && bim <= 29.9) bimType = 'Şişman';
+    else if (bim => 30 && bim <= 34.9) bimType = 'Obez';
+    else bimType = 'Aşırı Obez';
+    
     let err = false;
     if (parseInt(weight) <= 0) {
       setWeightError('Lütfen Kilonuzu Giriniz');
@@ -83,7 +82,16 @@ function Form() {
     }
     if (err) return;
     
-    setHistory([...history, data]);
+        const data = {
+          date: date.toLocaleDateString(),
+          name: name,
+          size: size,
+          weight: weight,
+          bim: bim,
+          bimType: bimType,
+        };
+    
+    setHistory([data, ...history]);
     localStorage.setItem("bim_history", JSON.stringify([data, ...history]));
 
     setName('');
@@ -121,22 +129,18 @@ function Form() {
             <button className="close" onClick={close}>
               &times;
             </button>
-            <div className="modal-header"> Modal Title </div>
+            <div className="modal-header"> VKE DEĞERİNİZ </div>
             <div className="modal-content">
-              Sizin VKE değeriniz <strong>{JSON.stringify(history[0].bim)}</strong> şeklindedir. Size uygun diyet programı için <Link to='/diyet'>tıklayınız</Link>.
+              <div style={{ paddingTop: '27px' }}>
+                <img src='../body-scale-1.png' alt='vücut tartısı' width='135' />
+              </div>
+              <div>
+                <p><span className='popup-title'>İSİM : </span>{history[0].name ? history[0].name : 'Bilinmiyor'}</p>
+                <p><span className='popup-title'>VKE DEĞERİ :</span> <strong>{history[0].bim}</strong></p>
+                <p><span className='popup-title'>VKE TİPİ :</span> <strong>{history[0].bimType}</strong></p>
+                <p>Size uygun diyet programı için <Link to='/diyet'>tıklayınız</Link>.</p>
+              </div>
             </div>
-            {/* <div className="actions">
-              <button className="button"> Diyet </button>
-
-              <button
-                className="button"
-                onClick={() => {
-                  close();
-                }}
-              >
-                Kapat
-              </button>
-            </div> */}
           </div>
         )}
       </Popup>
